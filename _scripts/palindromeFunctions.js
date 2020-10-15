@@ -1,6 +1,18 @@
-const PALIN_SUBMIT = document.getElementById("palinSubmit");
-let showResult = document.getElementById("showResult").innerHTML;
+let body = document.body.style;
+let palinSubmit = document.getElementById("palinSubmit");
+let showResult = document.getElementById("showResult");
+let palinCheck = document.getElementById("palinCheck");
 let testWord = ["b", "b", "o", "o", "b", "b"];
+let palinTests = [
+    testWord,
+    ["e", "e", "r", "e", "e"],
+    ["g", "k", "w", "i", "u", "y", "t"],
+    "baaaabr",
+    [0,3,4,4,3,0],
+    7778889888777,
+    54546546666677,
+    "049355"
+];
 
 // Palindrome function. Checks if any string, array, or number is a palindrome:
 
@@ -17,15 +29,18 @@ function palin (possiblePalin) {
         console.log(reverseSecondHalf); // . . .necessary for the end result.
             if (firstHalf.join() == reverseSecondHalf.join()) {
                 console.log(`${word} IS a palindrome.`);
-                showResult = `${word} IS a palindrome.`;               
+                showResult.innerHTML = `${word} IS a palindrome.`;
+                body.backgroundColor = "green";             
             } else if (firstHalf.join() != reverseSecondHalf.join()) {
                 reverseSecondHalf.pop();
                     if (firstHalf.join() == reverseSecondHalf.join()) {
                     console.log(`${word} IS a palindrome.`);
-                    showResult = `${word} IS a palindrome.`;                   
+                    showResult.innerHTML = `${word} IS a palindrome.`;
+                    body.backgroundColor = "green";                    
                     } else {
                     console.log(`${word} is NOT a palindrome.`);
-                    showResult = `${word} is NOT a palindrome.`;                    
+                    showResult.innerHTML = `${word} is NOT a palindrome.`;
+                    body.backgroundColor = "red";                    
                     }
             }
     } else if (!Array.isArray(possiblePalin) && typeof possiblePalin !== "number") {
@@ -40,15 +55,18 @@ function palin (possiblePalin) {
         console.log(reverseSecondHalf); // . . .necessary for the end result.
             if (firstHalf.join() == reverseSecondHalf.join()) {
                 console.log(`${word} IS a palindrome.`);
-                showResult = `${word} IS a palindrome.`;               
+                showResult.innerHTML = `${word} IS a palindrome.`;  
+                body.backgroundColor = "green";               
             } else if (firstHalf.join() != reverseSecondHalf.join()) {
                 reverseSecondHalf.pop();
                     if (firstHalf.join() == reverseSecondHalf.join()) {
                     console.log(`${word} IS a palindrome.`);
-                    showResult = `${word} IS a palindrome.`;                   
+                    showResult.innerHTML = `${word} IS a palindrome.`; 
+                    body.backgroundColor = "green";  
                     } else {
                     console.log(`${word} is NOT a palindrome.`);
-                    showResult = `${word} is NOT a palindrome.`;                   
+                    showResult.innerHTML = `${word} is NOT a palindrome.`;
+                    body.backgroundColor = "red";                   
                     }
             }
     } else if (typeof possiblePalin === "number") {
@@ -63,28 +81,24 @@ function palin (possiblePalin) {
         console.log(reverseSecondHalf); // . . .necessary for the end result.
             if (firstHalf.join() == reverseSecondHalf.join()) {
                 console.log(`${word} IS a palindrome.`);
-                showResult = `${word} IS a palindrome.`;                
+                showResult.innerHTML = `${word} IS a palindrome.`;  
+                body.backgroundColor = "green";                
             } else if (firstHalf.join() != reverseSecondHalf.join()) {
                 reverseSecondHalf.pop();
                     if (firstHalf.join() == reverseSecondHalf.join()) {
                     console.log(`${word} IS a palindrome.`);
-                    showResult = `${word} IS a palindrome.`;                   
+                    showResult.innerHTML = `${word} IS a palindrome.`;  
+                    body.backgroundColor = "green";                   
                     } else {
                     console.log(`${word} is NOT a palindrome.`);
-                    showResult = `${word} is NOT a palindrome.`;
+                    showResult.innerHTML = `${word} is NOT a palindrome.`;
+                    body.backgroundColor = "red";
                     }
             }
     } else {
-        throw "Please try again with an array, string, or numbers." 
+        throw "Please try again with an array, string, or numbers.";
     }
 }
 
-palin(testWord);
-palin(["e","e", "r", "e", "e"]);
-palin(["g","k", "w", "i", "u","y", "t"]);
-palin("baaaabr");
-palin([0,3,4,4,3,0]);
-palin(34,555,67,2112,34355);
-palin(7778889888777);
-palin(54546546666677);
-palin("049355");
+palinSubmit.addEventListener("click", palin(palinTests[0]));
+
