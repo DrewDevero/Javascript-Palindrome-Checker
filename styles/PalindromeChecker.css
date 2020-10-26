@@ -26,6 +26,8 @@
 #palinCheck {
     height: 1.8rem;
     text-align:center;
+    background-color: white;
+    transition: all 0.15s linear;
 }
 #palinSubmit {
     padding: 0.5rem 1.5rem 0.5rem;
@@ -33,6 +35,9 @@
     background-color: rgba(0, 128, 0, 0.33);
     font-weight: bolder;
     outline: transparent;
+}
+#palinCheck:focus {
+    background-color: rgb(198, 221, 255);
 }
 #showResult {
     font-size: 3rem;
