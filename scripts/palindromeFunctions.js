@@ -1,7 +1,7 @@
-let body = document.body.style;
-let palinSubmit = document.getElementById("palinSubmit");
-let showResult = document.getElementById("showResult");
-let palinCheck = document.getElementById("palinCheck");
+const body = document.body.style;
+const palinSubmit = document.getElementById("palinSubmit");
+const showResult = document.getElementById("showResult");
+const palinCheck = document.getElementById("palinCheck");
 let testWord = ["b", "b", "o", "o", "b", "b"];
 let palinTests = [
     testWord,
@@ -117,7 +117,7 @@ function palin (possiblePalin) {
 // - the next item in the array will be processed the next time the button is clicked
 // - the input position on the list resets to the beginning of the list once all items on the list have been processed once
 
-function palinTestIter() {
+/* function palinTestIter() {
 if (i < palinTests.length) {
         palin(palinTests[i]);
         return i++;
@@ -126,4 +126,11 @@ if (i < palinTests.length) {
         return i = 0;
     }
 }
-palinSubmit.addEventListener("click", palinTestIter);
+palinSubmit.addEventListener("click", palinTestIter); */
+
+palinSubmit.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (palinCheck !== "") {
+        palin(palinCheck.value);
+    }
+})
