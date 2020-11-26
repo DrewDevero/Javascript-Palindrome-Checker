@@ -128,6 +128,8 @@ if (i < palinTests.length) {
 }
 palinSubmit.addEventListener("click", palinTestIter); */
 
+//takes in user input and feeds it through the palindrome checker function, palin()
+
 palinSubmit.addEventListener("click", (e) => {
     e.preventDefault();
     if (palinCheck !== "") {
